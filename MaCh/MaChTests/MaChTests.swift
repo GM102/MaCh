@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Alamofire
 @testable import MaCh
 
 class MaChTests: XCTestCase {
@@ -19,9 +20,26 @@ class MaChTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testReadFromPLC() {
+        let exp = XCTestExpectation()
+        Alamofire.request("http://192.168.1.201/webserv/samples/all_hex.ssi", method: .get, parameters: nil).validate().responseString { (response) in
+            print(response)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 10)
+    }
+    
+    func testSaveFromPLC() {
+        let exp = XCTestExpectation()
+        let params = ["ADR1":"MB0",
+                      "VALUE1":"03",
+                      "FORMAT1":"%d"]
+        let headers = ["Referer:": "http://192.168.1.201/webserv/samples/all_hex.ssi"]
+        Alamofire.request("http://192.168.1.201/WRITEPI", method: .post, parameters: params, encoding:URLEncoding.httpBody, headers:headers).validate().responseJSON { (response) in
+            print(response)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 10)
     }
 
     func testPerformanceExample() {

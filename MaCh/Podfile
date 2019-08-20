@@ -1,0 +1,10 @@
+platform :ios, '12.0'
+use_frameworks!
+
+target :'MaCh' do
+  pod 'Alamofire'
+end
+
+target :'MaChTests' do
+  pod 'Alamofire'
+end

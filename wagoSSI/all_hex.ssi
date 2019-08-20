@@ -1,18 +1,16 @@
 {
-  Q:[
-  <!--#READPI ADR=QW0&FORMAT=%X-->,
-  <!--#READPI ADR=QW1&FORMAT=%X-->,
-  <!--#READPI ADR=QW2&FORMAT=%X-->,
-  <!--#READPI ADR=QW3&FORMAT=%X-->,
-  <!--#READPI ADR=QW4&FORMAT=%X-->
-
+  "Q":[
+  <!--#READPI ADR=QW0&FORMAT=%d-->,
+  <!--#READPI ADR=QW1&FORMAT=%d-->,
+  <!--#READPI ADR=QW2&FORMAT=%d-->,
+  <!--#READPI ADR=QW3&FORMAT=%d-->,
+  <!--#READPI ADR=QW4&FORMAT=%d-->
   ],
-  M:[
-  <!--#READPI ADR=MW0&FORMAT=%X-->,
-  <!--#READPI ADR=MW1&FORMAT=%X-->,
-  <!--#READPI ADR=MW2&FORMAT=%X-->,
-  <!--#READPI ADR=MW3&FORMAT=%X-->,
-  <!--#READPI ADR=MW4&FORMAT=%X-->
-
+  "M":[
+  <!--#READPI ADR=MW0&FORMAT=%d-->,
+  <!--#READPI ADR=MW1&FORMAT=%d-->,
+  <!--#READPI ADR=MW2&FORMAT=%d-->,
+  <!--#READPI ADR=MW3&FORMAT=%d-->,
+  <!--#READPI ADR=MW4&FORMAT=%d-->
   ]
 }
