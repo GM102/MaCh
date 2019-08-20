@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<BODY>
+
+  <form action="/WRITEPI" method="POST">
+  <input type="text" name="ADR1" value="MB0">
+  <input type="text" name="VALUE1" value="<!--#READPI ADR=MB0&FORMAT=%d-->" >
+  <input type="text" name="FORMAT1" value="%d" >
+  <input type="SUBMIT" value="SAVE">
+
+<table frame = 1>
+<tr>
+  <td> QW0 </td>
+  <td> <!--#READPI ADR=QW0&FORMAT=%X--> </td>
+</tr>
+
+<tr>
+  <td> QW0 </td>
+  <td> <!--#READPI ADR=QW0&FORMAT=%d--> </td>
+</tr>
+
+<tr>
+  <td> MB0 </td>
+  <td> <!--#READPI ADR=MB0&FORMAT=%d--> </td>
+</tr>
+
+<tr>
+  <td> Czas </td>
+  <td> <!--#GETTIMEDATE FORMAT=%d.%m.%y %H:%M:%S --> </td>
+</tr>
+
+</table>
+
+
+</BODY>
+</html>

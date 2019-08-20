@@ -1,0 +1,18 @@
+{
+  Q:[
+  <!--#READPI ADR=QW0&FORMAT=%X-->,
+  <!--#READPI ADR=QW1&FORMAT=%X-->,
+  <!--#READPI ADR=QW2&FORMAT=%X-->,
+  <!--#READPI ADR=QW3&FORMAT=%X-->,
+  <!--#READPI ADR=QW4&FORMAT=%X-->
+
+  ],
+  M:[
+  <!--#READPI ADR=MW0&FORMAT=%X-->,
+  <!--#READPI ADR=MW1&FORMAT=%X-->,
+  <!--#READPI ADR=MW2&FORMAT=%X-->,
+  <!--#READPI ADR=MW3&FORMAT=%X-->,
+  <!--#READPI ADR=MW4&FORMAT=%X-->
+
+  ]
+}
