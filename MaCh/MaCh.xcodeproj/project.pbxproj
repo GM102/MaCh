@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6330757A230C942E00EF408B /* PlcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63307579230C942E00EF408B /* PlcData.swift */; };
+		6330757B230C942E00EF408B /* PlcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63307579230C942E00EF408B /* PlcData.swift */; };
 		639B9E81230C647100EAA1A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E80230C647100EAA1A8 /* AppDelegate.swift */; };
 		639B9E83230C647100EAA1A8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E82230C647100EAA1A8 /* RootViewController.swift */; };
 		639B9E85230C647100EAA1A8 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E84230C647100EAA1A8 /* DataViewController.swift */; };
@@ -14,7 +16,17 @@
 		639B9E8A230C647100EAA1A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639B9E88230C647100EAA1A8 /* Main.storyboard */; };
 		639B9E8C230C647200EAA1A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639B9E8B230C647200EAA1A8 /* Assets.xcassets */; };
 		639B9E8F230C647200EAA1A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639B9E8D230C647200EAA1A8 /* LaunchScreen.storyboard */; };
-		639B9E9A230C647200EAA1A8 /* MaChTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E99230C647200EAA1A8 /* MaChTests.swift */; };
+		639B9E9A230C647200EAA1A8 /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E99230C647200EAA1A8 /* IntegrationTests.swift */; };
+		63FF230E23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */; };
+		63FF230F23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */; };
+		63FF2312231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */; };
+		63FF2313231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */; };
+		63FF2315231143A1000CA6C3 /* WagoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF2314231143A1000CA6C3 /* WagoResponse.swift */; };
+		63FF2316231143A1000CA6C3 /* WagoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF2314231143A1000CA6C3 /* WagoResponse.swift */; };
+		63FF2318231157F3000CA6C3 /* WagoResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF2317231157F3000CA6C3 /* WagoResponseParsingTests.swift */; };
+		63FF231A2311A03D000CA6C3 /* WagoPostParamsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF23192311A03D000CA6C3 /* WagoPostParamsBuilder.swift */; };
+		63FF231B2311A03D000CA6C3 /* WagoPostParamsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF23192311A03D000CA6C3 /* WagoPostParamsBuilder.swift */; };
+		63FF231E2311C9B2000CA6C3 /* WagoPostParamsBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF231D2311C9B2000CA6C3 /* WagoPostParamsBuilderTests.swift */; };
 		7607B094093459501CF4DEC6 /* Pods_MaChTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FD9485D9BEA68880920F00 /* Pods_MaChTests.framework */; };
 		9F34CBA2151DB35778901BD2 /* Pods_MaCh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99F0496026A0ED723761AD19 /* Pods_MaCh.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +44,7 @@
 /* Begin PBXFileReference section */
 		15FD9485D9BEA68880920F00 /* Pods_MaChTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaChTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EAAFDFB2DCA767C4CFB0DC /* Pods-MaCh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaCh.debug.xcconfig"; path = "Target Support Files/Pods-MaCh/Pods-MaCh.debug.xcconfig"; sourceTree = "<group>"; };
+		63307579230C942E00EF408B /* PlcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlcData.swift; sourceTree = "<group>"; };
 		639B9E7D230C647100EAA1A8 /* MaCh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaCh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		639B9E80230C647100EAA1A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		639B9E82230C647100EAA1A8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -42,8 +55,14 @@
 		639B9E8E230C647200EAA1A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		639B9E90230C647200EAA1A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		639B9E95230C647200EAA1A8 /* MaChTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaChTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		639B9E99230C647200EAA1A8 /* MaChTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaChTests.swift; sourceTree = "<group>"; };
+		639B9E99230C647200EAA1A8 /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		639B9E9B230C647200EAA1A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoMemoryGateway.swift; sourceTree = "<group>"; };
+		63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoMemoryNetworkAPI.swift; sourceTree = "<group>"; };
+		63FF2314231143A1000CA6C3 /* WagoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoResponse.swift; sourceTree = "<group>"; };
+		63FF2317231157F3000CA6C3 /* WagoResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoResponseParsingTests.swift; sourceTree = "<group>"; };
+		63FF23192311A03D000CA6C3 /* WagoPostParamsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoPostParamsBuilder.swift; sourceTree = "<group>"; };
+		63FF231D2311C9B2000CA6C3 /* WagoPostParamsBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoPostParamsBuilderTests.swift; sourceTree = "<group>"; };
 		6E53D8FD669CD1FF14FCD912 /* Pods-MaChTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaChTests.debug.xcconfig"; path = "Target Support Files/Pods-MaChTests/Pods-MaChTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7113BAD8A00E4A176E833ED9 /* Pods-MaCh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaCh.release.xcconfig"; path = "Target Support Files/Pods-MaCh/Pods-MaCh.release.xcconfig"; sourceTree = "<group>"; };
 		99F0496026A0ED723761AD19 /* Pods_MaCh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaCh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +112,7 @@
 		639B9E7F230C647100EAA1A8 /* MaCh */ = {
 			isa = PBXGroup;
 			children = (
+				63FF2310231126B0000CA6C3 /* WagoMemoryAccess */,
 				639B9E80230C647100EAA1A8 /* AppDelegate.swift */,
 				639B9E82230C647100EAA1A8 /* RootViewController.swift */,
 				639B9E84230C647100EAA1A8 /* DataViewController.swift */,
@@ -101,6 +121,7 @@
 				639B9E8B230C647200EAA1A8 /* Assets.xcassets */,
 				639B9E8D230C647200EAA1A8 /* LaunchScreen.storyboard */,
 				639B9E90230C647200EAA1A8 /* Info.plist */,
+				63307579230C942E00EF408B /* PlcData.swift */,
 			);
 			path = MaCh;
 			sourceTree = "<group>";
@@ -108,10 +129,23 @@
 		639B9E98230C647200EAA1A8 /* MaChTests */ = {
 			isa = PBXGroup;
 			children = (
-				639B9E99230C647200EAA1A8 /* MaChTests.swift */,
 				639B9E9B230C647200EAA1A8 /* Info.plist */,
 			);
 			path = MaChTests;
+			sourceTree = "<group>";
+		};
+		63FF2310231126B0000CA6C3 /* WagoMemoryAccess */ = {
+			isa = PBXGroup;
+			children = (
+				639B9E99230C647200EAA1A8 /* IntegrationTests.swift */,
+				63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */,
+				63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */,
+				63FF23192311A03D000CA6C3 /* WagoPostParamsBuilder.swift */,
+				63FF231D2311C9B2000CA6C3 /* WagoPostParamsBuilderTests.swift */,
+				63FF2314231143A1000CA6C3 /* WagoResponse.swift */,
+				63FF2317231157F3000CA6C3 /* WagoResponseParsingTests.swift */,
+			);
+			path = WagoMemoryAccess;
 			sourceTree = "<group>";
 		};
 		B71E5890C4B7AD74DA823A32 /* Frameworks */ = {
@@ -289,12 +323,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MaChTests/Pods-MaChTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -311,12 +347,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MaCh/Pods-MaCh-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -330,9 +368,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FF231A2311A03D000CA6C3 /* WagoPostParamsBuilder.swift in Sources */,
 				639B9E83230C647100EAA1A8 /* RootViewController.swift in Sources */,
 				639B9E87230C647100EAA1A8 /* ModelController.swift in Sources */,
+				63FF2312231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */,
+				6330757A230C942E00EF408B /* PlcData.swift in Sources */,
 				639B9E85230C647100EAA1A8 /* DataViewController.swift in Sources */,
+				63FF2315231143A1000CA6C3 /* WagoResponse.swift in Sources */,
+				63FF230E23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */,
 				639B9E81230C647100EAA1A8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +384,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				639B9E9A230C647200EAA1A8 /* MaChTests.swift in Sources */,
+				63FF2316231143A1000CA6C3 /* WagoResponse.swift in Sources */,
+				63FF231B2311A03D000CA6C3 /* WagoPostParamsBuilder.swift in Sources */,
+				63FF231E2311C9B2000CA6C3 /* WagoPostParamsBuilderTests.swift in Sources */,
+				63FF2318231157F3000CA6C3 /* WagoResponseParsingTests.swift in Sources */,
+				63FF2313231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */,
+				639B9E9A230C647200EAA1A8 /* IntegrationTests.swift in Sources */,
+				63FF230F23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */,
+				6330757B230C942E00EF408B /* PlcData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
