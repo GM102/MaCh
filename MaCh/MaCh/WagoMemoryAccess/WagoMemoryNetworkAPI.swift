@@ -15,6 +15,8 @@ struct WagoURL {
         switch range {
         case .everything:
             return readRangesBaseUrl + "all_hex.ssi"
+        case .allMemory:
+            return readRangesBaseUrl + "all_hex.ssi"
         }
     }
 }

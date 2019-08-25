@@ -14,7 +14,7 @@ import SwiftyJSON
 
 class MaChTests: XCTestCase {
     
-    func testReadFromPLC() {
+    func _testReadFromPLC() {
         let exp = XCTestExpectation()
         WagoMemoryNetworkAPI.shared.getData(atRange: .everything) { (result, error) in
             XCTAssert(result?.first != nil)
@@ -23,7 +23,7 @@ class MaChTests: XCTestCase {
         wait(for: [exp], timeout: 10)
     }
     
-    func testSaveFromPLC() {
+    func _testSaveFromPLC() {
         let exp = XCTestExpectation()
         let commands = MockWriteCommands.setFirst4(withValue: 7)
         WagoMemoryNetworkAPI.shared.writeCommands(commands,

@@ -5,7 +5,8 @@ struct MockWriteCommands {
     static let clearFirst4:[MemoryCellWriteCommand] = setFirst4(withValue: 0)
     static func setFirst4(withValue value:UInt) -> [MemoryCellWriteCommand] {
         return [0,1,2,3].map { (address) in
-            return MemoryCellWriteCommand(address: UInt(address), value: value)
+            let address = Address(offset: UInt(address))
+            return MemoryCellWriteCommand(address: address, value: value)
         }
     }
 }

@@ -2,12 +2,8 @@
 import Foundation
 
 enum WagoMemoryRange {
-    case everything
-}
-
-enum WagoMemoryType:String {
-    case merkers = "M"
-    case outputs = "Q"
+    case everything // outputs & memory
+    case allMemory
 }
 
 protocol WagoMemoryGateway {
