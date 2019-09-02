@@ -19,4 +19,11 @@ class WagoPostParamsBuilderTests: XCTestCase {
         XCTAssertEqual(params.keys.count, 4 * 3)
         XCTAssertEqual(params["ADR4"], "MW3")
     }
+    
+    func testCommandBuilder() {
+        let command = MemoryCellWriteCommand(address: Address.mockAddress10, value: 5)
+        let params = command.build()
+        XCTAssertEqual(params.count, 3)
+        
+    }
 }

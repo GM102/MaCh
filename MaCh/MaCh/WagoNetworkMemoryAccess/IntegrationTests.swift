@@ -1,10 +1,3 @@
-//
-//  MaChTests.swift
-//  MaChTests
-//
-//  Created by Grzegorz Moscichowski on 20/08/2019.
-//  Copyright © 2019 Grzegorz Moscichowski. All rights reserved.
-//
 
 import XCTest
 import Alamofire

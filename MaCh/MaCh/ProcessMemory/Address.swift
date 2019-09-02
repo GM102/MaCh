@@ -12,7 +12,7 @@ enum WagoDataType: String {
     case bit = "X" // 1 bit
 }
 
-struct Address {
+struct Address:Equatable {
     let memoryType: WagoMemoryType
     let dataType: WagoDataType
     let offset: UInt
