@@ -7,25 +7,44 @@ protocol ProcessMemoryCommandQueue {
 
 protocol ProcessMemoryManagement {
     func executeCommands()
+    func refreshData()
     var apiInterface:WagoMemoryGateway {get set}
 }
 
-class WagoProcessMemory: ProcessMemoryCommandQueue, ProcessMemoryManagement {
+protocol ProcessElementsRepository: UpdatableElement {
+    var elements: [UpdatableElement] {get}
+}
+
+class WagoProcessMemory: ProcessMemoryCommandQueue, ProcessMemoryManagement, ProcessElementsRepository {
+    var apiInterface: WagoMemoryGateway
+    private var writeCommands = [MemoryCellWriteCommand]()
+    var elements = [UpdatableElement]()
+
+    init(api:WagoMemoryGateway) {
+        self.apiInterface = api
+    }
+
     func queueWriteCommand(address:Address, data:DataType) {
         writeCommands.append(MemoryCellWriteCommand(address: address, value: data.rawData))
     }
     
-    var apiInterface: WagoMemoryGateway
-    private var writeCommands = [MemoryCellWriteCommand]()
-    
-    init(api:WagoMemoryGateway) {
-        self.apiInterface = api
-    }
-    
     func executeCommands() {
-        apiInterface.writeCommands(writeCommands, readRange: .allMemory) { (ints, error) in
-            //
-        }
+        apiInterface.writeCommands(writeCommands, readRange: .allMemory, completion: propagateMemoryUpdate)
     }
     
+    func refreshData() {
+        apiInterface.getData(atRange: .allMemory, completion: propagateMemoryUpdate)
+    }
+    
+    private func propagateMemoryUpdate(_ ints:[UInt16]?, _ error:Error?) {
+        self.update(forAddress: Address(offset: 0), value: ints?.first ?? 0)
+    }
+
+    func update(forAddress address: Address, value: UInt16) {
+        elements.forEach{$0.update(forAddress: address, value: value)}
+    }
+ 
+    var onOffElements:[ProcessElement<OnOffState>] {
+        return elements.compactMap{$0 as? ProcessElement<OnOffState>}
+    }
 }

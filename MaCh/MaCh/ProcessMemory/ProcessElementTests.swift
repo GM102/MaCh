@@ -1,26 +1,6 @@
 
 import XCTest
 
-struct MockProcessElementBuilder {
-    var mockApi:MockProcessMemoryCommandQueue = MockProcessMemoryCommandQueue()
-    var exampleOnOf: ProcessElement<OnOffState> {
-        return ProcessElement(address: Address(offset: 10), name: "test", value: OnOffState.off, commandQueue: mockApi)
-    }
-}
-
-class MockProcessElementsRepository: ProcessElementsRepositoryImp {
-}
-
-class MockProcessElementsRepositoryBuilder {
-    var mockApi:MockProcessMemoryCommandQueue = MockProcessMemoryCommandQueue()
-    func build() -> MockProcessElementsRepository {
-        let repo = MockProcessElementsRepository()
-        let element = MockProcessElementBuilder(mockApi: mockApi).exampleOnOf
-        repo.onOffElements.append(element)
-        return repo
-    }
-}
-
 class ProcessElementTests: XCTestCase {
     func testExampleSetOperation() {
         let expectation = XCTestExpectation()
@@ -43,5 +23,17 @@ class ProcessElementTests: XCTestCase {
         element.update(forAddress: Address(offset: 10), value: 1)
         XCTAssertEqual(element.dataState, DataState.valid)
         XCTAssertEqual(element.value, OnOffState.on)
+    }
+    
+    func testElementsBuilder() {
+        let builder = ProcessElementsBuilder(commandQueue: MockProcessMemoryCommandQueue())
+        let shader = builder.openClose(withName: "test", address: Address.mockAddress10)
+        XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(nil))
+        shader.update(forAddress: Address.mockAddress10, value: 155)
+        XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(55))
+        shader.update(forAddress: Address.mockAddress10, value: 1000)
+        XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(nil))
+//        shader.setValue(.stoppedInBetween(1000))
+//        XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(nil))
     }
 }

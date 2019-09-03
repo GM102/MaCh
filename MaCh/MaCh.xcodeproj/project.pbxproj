@@ -13,11 +13,10 @@
 		6372218E231D758A00EA5047 /* WagoProcessMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372218C231D758A00EA5047 /* WagoProcessMemory.swift */; };
 		63722190231D75BD00EA5047 /* ProcessElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372218F231D75BD00EA5047 /* ProcessElement.swift */; };
 		63722191231D75BD00EA5047 /* ProcessElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372218F231D75BD00EA5047 /* ProcessElement.swift */; };
-		63722193231D75F400EA5047 /* ProcessElementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63722192231D75F400EA5047 /* ProcessElementRepository.swift */; };
-		63722194231D75F400EA5047 /* ProcessElementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63722192231D75F400EA5047 /* ProcessElementRepository.swift */; };
 		63722195231D762900EA5047 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF23232311D89A000CA6C3 /* Address.swift */; };
 		63722196231D763700EA5047 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF232C23132E34000CA6C3 /* DataTypes.swift */; };
 		63722198231D802E00EA5047 /* MockAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63722197231D802E00EA5047 /* MockAddress.swift */; };
+		6372219B231D851100EA5047 /* DataTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372219A231D851100EA5047 /* DataTypesTests.swift */; };
 		639B9E81230C647100EAA1A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E80230C647100EAA1A8 /* AppDelegate.swift */; };
 		639B9E83230C647100EAA1A8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E82230C647100EAA1A8 /* RootViewController.swift */; };
 		639B9E85230C647100EAA1A8 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E84230C647100EAA1A8 /* DataViewController.swift */; };
@@ -26,6 +25,7 @@
 		639B9E8C230C647200EAA1A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639B9E8B230C647200EAA1A8 /* Assets.xcassets */; };
 		639B9E8F230C647200EAA1A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639B9E8D230C647200EAA1A8 /* LaunchScreen.storyboard */; };
 		639B9E9A230C647200EAA1A8 /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E99230C647200EAA1A8 /* IntegrationTests.swift */; };
+		63BB313F231F0DD60030BD91 /* MockProcessElementsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB313E231F0DD60030BD91 /* MockProcessElementsRepository.swift */; };
 		63FF230E23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */; };
 		63FF230F23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */; };
 		63FF2312231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */; };
@@ -61,8 +61,8 @@
 		63722185231C0C0400EA5047 /* ProcessElementsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessElementsRepositoryTests.swift; sourceTree = "<group>"; };
 		6372218C231D758A00EA5047 /* WagoProcessMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoProcessMemory.swift; sourceTree = "<group>"; };
 		6372218F231D75BD00EA5047 /* ProcessElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessElement.swift; sourceTree = "<group>"; };
-		63722192231D75F400EA5047 /* ProcessElementRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessElementRepository.swift; sourceTree = "<group>"; };
 		63722197231D802E00EA5047 /* MockAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddress.swift; sourceTree = "<group>"; };
+		6372219A231D851100EA5047 /* DataTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypesTests.swift; sourceTree = "<group>"; };
 		639B9E7D230C647100EAA1A8 /* MaCh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaCh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		639B9E80230C647100EAA1A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		639B9E82230C647100EAA1A8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +75,7 @@
 		639B9E95230C647200EAA1A8 /* MaChTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaChTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		639B9E99230C647200EAA1A8 /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		639B9E9B230C647200EAA1A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63BB313E231F0DD60030BD91 /* MockProcessElementsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProcessElementsRepository.swift; sourceTree = "<group>"; };
 		63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoMemoryGateway.swift; sourceTree = "<group>"; };
 		63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoMemoryNetworkAPI.swift; sourceTree = "<group>"; };
 		63FF2314231143A1000CA6C3 /* WagoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoResponse.swift; sourceTree = "<group>"; };
@@ -114,10 +115,6 @@
 		63722199231D817C00EA5047 /* ProcessElements */ = {
 			isa = PBXGroup;
 			children = (
-				6372218F231D75BD00EA5047 /* ProcessElement.swift */,
-				63FF2334231C1BA4000CA6C3 /* ProcessElementTests.swift */,
-				63722192231D75F400EA5047 /* ProcessElementRepository.swift */,
-				63722185231C0C0400EA5047 /* ProcessElementsRepositoryTests.swift */,
 			);
 			path = ProcessElements;
 			sourceTree = "<group>";
@@ -188,9 +185,14 @@
 				63FF23232311D89A000CA6C3 /* Address.swift */,
 				63722197231D802E00EA5047 /* MockAddress.swift */,
 				63FF232C23132E34000CA6C3 /* DataTypes.swift */,
+				6372219A231D851100EA5047 /* DataTypesTests.swift */,
 				6372218C231D758A00EA5047 /* WagoProcessMemory.swift */,
 				63FF2332231C1AC4000CA6C3 /* MockProcessMemoryCommandQueue.swift */,
+				63722185231C0C0400EA5047 /* ProcessElementsRepositoryTests.swift */,
 				63722183231BDEC300EA5047 /* WagoProcessMemoryTests.swift */,
+				6372218F231D75BD00EA5047 /* ProcessElement.swift */,
+				63BB313E231F0DD60030BD91 /* MockProcessElementsRepository.swift */,
+				63FF2334231C1BA4000CA6C3 /* ProcessElementTests.swift */,
 			);
 			path = ProcessMemory;
 			sourceTree = "<group>";
@@ -422,7 +424,6 @@
 				639B9E87230C647100EAA1A8 /* ModelController.swift in Sources */,
 				63722196231D763700EA5047 /* DataTypes.swift in Sources */,
 				63FF2312231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */,
-				63722193231D75F400EA5047 /* ProcessElementRepository.swift in Sources */,
 				639B9E85230C647100EAA1A8 /* DataViewController.swift in Sources */,
 				63FF2315231143A1000CA6C3 /* WagoResponse.swift in Sources */,
 				63FF230E23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */,
@@ -445,13 +446,14 @@
 				63FF2333231C1AC4000CA6C3 /* MockProcessMemoryCommandQueue.swift in Sources */,
 				63FF2318231157F3000CA6C3 /* WagoResponseParsingTests.swift in Sources */,
 				63722191231D75BD00EA5047 /* ProcessElement.swift in Sources */,
+				63BB313F231F0DD60030BD91 /* MockProcessElementsRepository.swift in Sources */,
 				63FF23252311D89A000CA6C3 /* Address.swift in Sources */,
 				63722184231BDEC300EA5047 /* WagoProcessMemoryTests.swift in Sources */,
 				63FF2313231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */,
 				639B9E9A230C647200EAA1A8 /* IntegrationTests.swift in Sources */,
 				63FF230F23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */,
 				63FF232E23132E34000CA6C3 /* DataTypes.swift in Sources */,
-				63722194231D75F400EA5047 /* ProcessElementRepository.swift in Sources */,
+				6372219B231D851100EA5047 /* DataTypesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

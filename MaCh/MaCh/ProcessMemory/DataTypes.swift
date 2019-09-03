@@ -2,10 +2,12 @@
 import Foundation
 
 protocol DataType {
-    var rawData:UInt {get set}
+    var rawData: UInt {get set}
+//    static var defaultValue: Self {get}
 }
 
-enum OnOffState:DataType {
+enum OnOffState:DataType, Equatable {
+    
     case on
     case off
     
@@ -27,9 +29,13 @@ enum OnOffState:DataType {
             }
         }
     }
+    
+    init() {
+        self = .off
+    }
 }
 
-enum OpenCloseState:DataType {
+enum OpenCloseState:DataType, Equatable {
     case opening
     case closing
     case open
@@ -53,9 +59,13 @@ enum OpenCloseState:DataType {
             case .closing: return 1
             case .open: return 2
             case .closed: return 3
-            case .stoppedInBetween(let percent): return UInt(100 + (percent ?? -1) )
+            case .stoppedInBetween(.none): return 4
+            case .stoppedInBetween(.some(let percent)): return UInt(100 + percent)
             }
         }
+    }
+    init() {
+        self = .stoppedInBetween(nil)
     }
 }
 
