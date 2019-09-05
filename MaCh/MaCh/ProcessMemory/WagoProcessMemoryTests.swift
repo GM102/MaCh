@@ -19,9 +19,11 @@ class FakeWagoMemoryGateway: WagoMemoryGateway {
 }
 
 class FakeElement:UpdatableElement {
-    var lastUpdateValue: UInt16?
+    var updateValues = [UInt16]()
+    var updateAddresses = [Address]()
     func update(forAddress address: Address, value: UInt16) {
-        lastUpdateValue = value
+        updateValues.append(value)
+        updateAddresses.append(address)
     }
 }
 
@@ -44,7 +46,7 @@ class WagoEventsTests: XCTestCase {
         XCTAssertEqual(api?.lastWriteCommands?.last?.address.offset, 10)
         XCTAssertEqual(api?.lastWriteCommands?.last?.value, 1)
         XCTAssertEqual(api?.lastreadRange, .allMemory)
-        XCTAssertEqual(fakeElement.lastUpdateValue, 1)
+        XCTAssertEqual(fakeElement.updateValues.last, 1)
     }
     
     func testRefreshData() {
@@ -52,7 +54,19 @@ class WagoEventsTests: XCTestCase {
         processMemory?.elements.append(fakeElement)
         api?.fakeReadMemory = [7]
         processMemory?.refreshData()
-        XCTAssertEqual(fakeElement.lastUpdateValue, 7)
+        XCTAssertEqual(fakeElement.updateValues.last, 7)
+        XCTAssertEqual(fakeElement.updateAddresses.last?.offset, 0)
     }
 
+    func testRefreshDataWithFewItems() {
+        let fakeElement = FakeElement()
+        processMemory?.elements.append(fakeElement)
+        let memory:[UInt16] = [3,2,1]
+        api?.fakeReadMemory = memory
+        processMemory?.refreshData()
+        XCTAssertEqual(fakeElement.updateValues, memory)
+        XCTAssertEqual(fakeElement.updateAddresses.last?.offset, 2)
+        XCTAssertEqual(fakeElement.updateValues.count, 3)
+    }
+    
 }

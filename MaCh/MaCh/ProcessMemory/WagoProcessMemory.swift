@@ -37,7 +37,10 @@ class WagoProcessMemory: ProcessMemoryCommandQueue, ProcessMemoryManagement, Pro
     }
     
     private func propagateMemoryUpdate(_ ints:[UInt16]?, _ error:Error?) {
-        self.update(forAddress: Address(offset: 0), value: ints?.first ?? 0)
+        ints?.enumerated().forEach({ tuple in
+            let (offset, value) = tuple
+            self.update(forAddress: Address(offset: UInt(offset)), value: value)
+        })
     }
 
     func update(forAddress address: Address, value: UInt16) {

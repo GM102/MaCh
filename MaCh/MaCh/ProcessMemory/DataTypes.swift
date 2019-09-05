@@ -49,7 +49,7 @@ enum OpenCloseState:DataType, Equatable {
             case 1: self = .closing
             case 2: self = .open
             case 3: self = .closed
-            case let v where (v >= 100 && v <= 200): self = .stoppedInBetween(Int(v) - 100)
+            case 100..<200: self = .stoppedInBetween(Int(newValue) - 100)
             default: self = .stoppedInBetween(nil)
             }
         }
@@ -68,5 +68,4 @@ enum OpenCloseState:DataType, Equatable {
         self = .stoppedInBetween(nil)
     }
 }
-
 
