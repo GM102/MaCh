@@ -41,7 +41,7 @@ class WagoEventsTests: XCTestCase {
         let fakeElement = FakeElement()
         processMemory?.elements.append(fakeElement)
         api?.fakeReadMemory = [1]
-        processMemory?.queueWriteCommand(address: Address.mockAddress10, data: OnOffState.on)
+        processMemory?.queueWriteCommand(address: Address.mockAddress10, data: OnOffState.on.rawValue)
         processMemory?.executeCommands()
         XCTAssertEqual(api?.lastWriteCommands?.last?.address.offset, 10)
         XCTAssertEqual(api?.lastWriteCommands?.last?.value, 1)

@@ -2,7 +2,7 @@
 import Foundation
 
 protocol ProcessMemoryCommandQueue {
-    func queueWriteCommand(address:Address, data:DataType)
+    func queueWriteCommand(address:Address, data:UInt)
 }
 
 protocol ProcessMemoryManagement {
@@ -24,8 +24,8 @@ class WagoProcessMemory: ProcessMemoryCommandQueue, ProcessMemoryManagement, Pro
         self.apiInterface = api
     }
 
-    func queueWriteCommand(address:Address, data:DataType) {
-        writeCommands.append(MemoryCellWriteCommand(address: address, value: data.rawData))
+    func queueWriteCommand(address:Address, data:UInt) {
+        writeCommands.append(MemoryCellWriteCommand(address: address, value: data))
     }
     
     func executeCommands() {
@@ -47,7 +47,7 @@ class WagoProcessMemory: ProcessMemoryCommandQueue, ProcessMemoryManagement, Pro
         elements.forEach{$0.update(forAddress: address, value: value)}
     }
  
-    var onOffElements:[ProcessElement<OnOffState>] {
-        return elements.compactMap{$0 as? ProcessElement<OnOffState>}
+    var onOffElements:[ProcessElement] {
+        return elements.compactMap{$0 as? ProcessElement}
     }
 }

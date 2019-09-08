@@ -26,6 +26,8 @@
 		639B9E8F230C647200EAA1A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639B9E8D230C647200EAA1A8 /* LaunchScreen.storyboard */; };
 		639B9E9A230C647200EAA1A8 /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B9E99230C647200EAA1A8 /* IntegrationTests.swift */; };
 		63BB313F231F0DD60030BD91 /* MockProcessElementsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB313E231F0DD60030BD91 /* MockProcessElementsRepository.swift */; };
+		63BB31442321B8660030BD91 /* ExampleRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB31432321B8660030BD91 /* ExampleRoom.swift */; };
+		63BB31452321B8660030BD91 /* ExampleRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB31432321B8660030BD91 /* ExampleRoom.swift */; };
 		63FF230E23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */; };
 		63FF230F23109D77000CA6C3 /* WagoMemoryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */; };
 		63FF2312231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */; };
@@ -76,6 +78,7 @@
 		639B9E99230C647200EAA1A8 /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		639B9E9B230C647200EAA1A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63BB313E231F0DD60030BD91 /* MockProcessElementsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProcessElementsRepository.swift; sourceTree = "<group>"; };
+		63BB31432321B8660030BD91 /* ExampleRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRoom.swift; sourceTree = "<group>"; };
 		63FF230D23109D77000CA6C3 /* WagoMemoryGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoMemoryGateway.swift; sourceTree = "<group>"; };
 		63FF2311231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoMemoryNetworkAPI.swift; sourceTree = "<group>"; };
 		63FF2314231143A1000CA6C3 /* WagoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagoResponse.swift; sourceTree = "<group>"; };
@@ -112,13 +115,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63722199231D817C00EA5047 /* ProcessElements */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProcessElements;
-			sourceTree = "<group>";
-		};
 		639B9E74230C647100EAA1A8 = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +138,8 @@
 		639B9E7F230C647100EAA1A8 /* MaCh */ = {
 			isa = PBXGroup;
 			children = (
+				63BB31422321B8440030BD91 /* Rooms */,
 				63FF23262311E7C0000CA6C3 /* ProcessMemory */,
-				63722199231D817C00EA5047 /* ProcessElements */,
 				63FF2310231126B0000CA6C3 /* WagoNetworkMemoryAccess */,
 				639B9E80230C647100EAA1A8 /* AppDelegate.swift */,
 				639B9E82230C647100EAA1A8 /* RootViewController.swift */,
@@ -163,6 +159,14 @@
 				639B9E9B230C647200EAA1A8 /* Info.plist */,
 			);
 			path = MaChTests;
+			sourceTree = "<group>";
+		};
+		63BB31422321B8440030BD91 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				63BB31432321B8660030BD91 /* ExampleRoom.swift */,
+			);
+			path = Rooms;
 			sourceTree = "<group>";
 		};
 		63FF2310231126B0000CA6C3 /* WagoNetworkMemoryAccess */ = {
@@ -422,6 +426,7 @@
 				63722195231D762900EA5047 /* Address.swift in Sources */,
 				639B9E83230C647100EAA1A8 /* RootViewController.swift in Sources */,
 				639B9E87230C647100EAA1A8 /* ModelController.swift in Sources */,
+				63BB31442321B8660030BD91 /* ExampleRoom.swift in Sources */,
 				63722196231D763700EA5047 /* DataTypes.swift in Sources */,
 				63FF2312231126DB000CA6C3 /* WagoMemoryNetworkAPI.swift in Sources */,
 				639B9E85230C647100EAA1A8 /* DataViewController.swift in Sources */,
@@ -439,6 +444,7 @@
 				63722198231D802E00EA5047 /* MockAddress.swift in Sources */,
 				63FF2316231143A1000CA6C3 /* WagoResponse.swift in Sources */,
 				63FF231B2311A03D000CA6C3 /* WagoPostParamsBuilder.swift in Sources */,
+				63BB31452321B8660030BD91 /* ExampleRoom.swift in Sources */,
 				63722186231C0C0400EA5047 /* ProcessElementsRepositoryTests.swift in Sources */,
 				6372218E231D758A00EA5047 /* WagoProcessMemory.swift in Sources */,
 				63FF231E2311C9B2000CA6C3 /* WagoPostParamsBuilderTests.swift in Sources */,

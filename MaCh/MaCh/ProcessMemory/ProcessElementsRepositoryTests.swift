@@ -12,10 +12,10 @@ class ProcessElementsRepositoryTests: XCTestCase {
         repoBuilder?.mockApi = MockProcessMemoryCommandQueue()
         let repo = repoBuilder?.build()
         let element = repo?.onOffElements.first
-        XCTAssertEqual(element?.value, OnOffState.off)
+        XCTAssertEqual(element?.value, OnOffState.off.rawValue)
         element?.stateUpdatedCallback = {element in
             XCTAssertEqual(element.dataState, DataState.valid)
-            XCTAssertEqual(element.value, OnOffState.on)
+            XCTAssertEqual(element.value, OnOffState.on.rawValue)
             expectation.fulfill()
         }
         repo?.update(forAddress: element!.address, value: 1)
@@ -26,8 +26,8 @@ class ProcessElementsRepositoryTests: XCTestCase {
         repoBuilder?.mockApi = MockProcessMemoryCommandQueue()
         let repo = repoBuilder?.build()
         let element = repo?.onOffElements.first
-        element?.setValue(.on)
-        XCTAssertEqual(repoBuilder?.mockApi.commandsData.first as? OnOffState, OnOffState.on)
+        element?.setValue(OnOffState.on.rawValue)
+        XCTAssertEqual(repoBuilder?.mockApi.commandsData.first, OnOffState.on.rawValue)
         XCTAssertEqual(repoBuilder?.mockApi.commandsData.count, 1)
     }
 }

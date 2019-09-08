@@ -3,8 +3,8 @@ import XCTest
 
 struct MockProcessElementBuilder {
     var mockApi:MockProcessMemoryCommandQueue = MockProcessMemoryCommandQueue()
-    var exampleOnOf: ProcessElement<OnOffState> {
-        return ProcessElement(address: Address.mockAddress10, name: "test", value: OnOffState.off, commandQueue: mockApi)
+    var exampleOnOf: ProcessElement {
+        return ProcessElement(address: Address.mockAddress10, name: "test", value: OnOffState.off.rawValue, commandQueue: mockApi)
     }
 }
 
