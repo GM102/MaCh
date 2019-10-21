@@ -3,25 +3,25 @@ import XCTest
 
 class FakeWagoMemoryGateway: WagoMemoryGateway {
     var lastWriteCommands: [MemoryCellWriteCommand]?
-    var lastreadRange: WagoMemoryRange?
+    var lastReadRange: WagoMemoryRange?
     var fakeReadMemory: [UInt16]?
     
     func getData(atRange range: WagoMemoryRange, completion: @escaping ([UInt16]?, Error?) -> ()) {
-        lastreadRange = range
+        lastReadRange = range
         completion(fakeReadMemory,nil)
     }
     
     func writeCommands(_ commands: [MemoryCellWriteCommand], readRange: WagoMemoryRange, completion: @escaping ([UInt16]?, Error?) -> ()) {
-        lastreadRange = readRange
+        lastReadRange = readRange
         lastWriteCommands = commands
         completion(fakeReadMemory, nil)
     }
 }
 
 class FakeElement:UpdatableElement {
-    var updateValues = [UInt16]()
+    var updateValues = [UInt]()
     var updateAddresses = [Address]()
-    func update(forAddress address: Address, value: UInt16) {
+    func update(forAddress address: Address, value: UInt) {
         updateValues.append(value)
         updateAddresses.append(address)
     }
@@ -41,11 +41,11 @@ class WagoEventsTests: XCTestCase {
         let fakeElement = FakeElement()
         processMemory?.elements.append(fakeElement)
         api?.fakeReadMemory = [1]
-        processMemory?.queueWriteCommand(address: Address.mockAddress10, data: OnOffState.on.rawValue)
+        processMemory?.queueWriteCommand(address: Address.mockAddress10, data: 1)
         processMemory?.executeCommands()
         XCTAssertEqual(api?.lastWriteCommands?.last?.address.offset, 10)
         XCTAssertEqual(api?.lastWriteCommands?.last?.value, 1)
-        XCTAssertEqual(api?.lastreadRange, .allMemory)
+        XCTAssertEqual(api?.lastReadRange, .allMemory)
         XCTAssertEqual(fakeElement.updateValues.last, 1)
     }
     
@@ -61,8 +61,8 @@ class WagoEventsTests: XCTestCase {
     func testRefreshDataWithFewItems() {
         let fakeElement = FakeElement()
         processMemory?.elements.append(fakeElement)
-        let memory:[UInt16] = [3,2,1]
-        api?.fakeReadMemory = memory
+        let memory:[UInt] = [3,2,1]
+        api?.fakeReadMemory = memory.map(UInt16.init)
         processMemory?.refreshData()
         XCTAssertEqual(fakeElement.updateValues, memory)
         XCTAssertEqual(fakeElement.updateAddresses.last?.offset, 2)

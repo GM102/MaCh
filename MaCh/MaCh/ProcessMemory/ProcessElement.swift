@@ -9,11 +9,11 @@ enum DataState: Equatable {
 }
 
 protocol UpdatableElement {
-    func update(forAddress address:Address, value:UInt16)
+    func update(forAddress address:Address, value:UInt)
 }
 
 class ProcessElement: UpdatableElement {
-    func update(forAddress address: Address, value: UInt16) {
+    func update(forAddress address: Address, value: UInt) {
         if address == self.address {
             dataState = .valid
             self.value = UInt(value)

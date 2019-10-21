@@ -38,7 +38,7 @@ enum OpenCloseState {
     }
 }
 
-extension OpenCloseState:RawRepresentable {
+extension OpenCloseState:RawRepresentable, Equatable {
     init(rawValue: UInt) {
         switch rawValue {
         case 0: self = .opening
