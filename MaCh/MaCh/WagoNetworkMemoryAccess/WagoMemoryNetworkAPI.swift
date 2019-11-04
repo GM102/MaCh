@@ -29,9 +29,10 @@ class WagoMemoryNetworkAPI: WagoMemoryGateway {
     func getData(atRange range: WagoMemoryRange, completion: @escaping ([UInt16]?, Error?) -> ()) {
         Alamofire.request(WagoURL.readAPI(withMemoryRange: range), method: .get, parameters: nil).validate().responseString { (response) in
             completion(WagoResponse(response.result.value)?.memoryMap, nil)
+            // TODO: error handling
         }
     }
-
+    
     func writeCommands(_ commands: [MemoryCellWriteCommand],
                        readRange: WagoMemoryRange,
                        completion: @escaping ([UInt16]?, Error?) -> ()) {
@@ -43,6 +44,7 @@ class WagoMemoryNetworkAPI: WagoMemoryGateway {
                           encoding:URLEncoding.httpBody,
                           headers:headers).validate().responseString { (response) in
                             completion(WagoResponse(response.result.value)?.memoryMap, nil)
+                            // TODO: error handling
         }
     }
 }

@@ -25,9 +25,18 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
 
     override init() {
         super.init()
-        // Create the data model.
-        let dateFormatter = DateFormatter()
-        pageData = dateFormatter.monthSymbols
+        pageData = [
+            "salon",
+            "pokój E",
+            "pokój N",
+            "pokój Julki",
+            "pokój Zosi",
+            "hol",
+            "hol piętro",
+            "łazienka parter",
+            "łazienka piętro",
+            "kotłownia"
+        ]
     }
 
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {

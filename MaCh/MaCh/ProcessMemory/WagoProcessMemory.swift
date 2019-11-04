@@ -6,12 +6,18 @@ protocol ProcessMemoryCommandQueue {
 }
 
 protocol ProcessMemoryManagement {
-    func executeCommands()
     func refreshData()
     var apiInterface:WagoMemoryGateway {get set}
 }
 
 protocol ProcessElementsRepository: UpdatableElement {
+    func addElement(withName name:String, address:Address) -> ProcessElement
+    
+    // create protocol to not expose UpdatableElement
+    // introduce subscript?
+    // remove elements array
+    // change elements array type 
+    func getElement(forAddress address:Address) -> UpdatableElement?
     var elements: [UpdatableElement] {get}
 }
 
@@ -28,12 +34,16 @@ class WagoProcessMemory: ProcessMemoryCommandQueue, ProcessMemoryManagement, Pro
         writeCommands.append(MemoryCellWriteCommand(address: address, value: data))
     }
     
-    func executeCommands() {
-        apiInterface.writeCommands(writeCommands, readRange: .allMemory, completion: propagateMemoryUpdate)
+    func refreshData() {
+        if writeCommands.count > 0 {
+            executeCommands()
+        }
+        apiInterface.getData(atRange: .allMemory, completion: propagateMemoryUpdate)
     }
     
-    func refreshData() {
-        apiInterface.getData(atRange: .allMemory, completion: propagateMemoryUpdate)
+    private func executeCommands() {
+        apiInterface.writeCommands(writeCommands, readRange: .allMemory, completion: propagateMemoryUpdate)
+        writeCommands = []
     }
     
     private func propagateMemoryUpdate(_ ints:[UInt16]?, _ error:Error?) {
@@ -46,4 +56,22 @@ class WagoProcessMemory: ProcessMemoryCommandQueue, ProcessMemoryManagement, Pro
     func update(forAddress address: Address, value: UInt) {
         elements.forEach{$0.update(forAddress: address, value: value)}
     }
+    
+    func addElement(withName name: String, address: Address) -> ProcessElement {
+        let element = ProcessElement(address: address, name: name, commandQueue: self)
+        // FIXME: retain cycle
+        elements.append(element)
+        return element
+    }
+    
+    func getElement(forAddress address: Address) -> UpdatableElement? {
+        for element in elements {
+            if (element as? ProcessElement)?.address == address {
+                return element
+            }
+        }
+        return nil
+    }
+    
+
 }

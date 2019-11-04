@@ -16,8 +16,11 @@ class ProcessElement: UpdatableElement {
     func update(forAddress address: Address, value: UInt) {
         if address == self.address {
             dataState = .valid
+            let wasChanged = self.value != UInt(value)
             self.value = UInt(value)
-            stateUpdatedCallback?(self)
+            if wasChanged {
+                stateUpdatedCallback?(self)
+            }
         }
     }
     
@@ -28,7 +31,7 @@ class ProcessElement: UpdatableElement {
     var stateUpdatedCallback: ((ProcessElement) -> ())?
     let commandQueue:ProcessMemoryCommandQueue
     
-    init(address:Address, name:String, value:UInt, commandQueue:ProcessMemoryCommandQueue) {
+    init(address:Address, name:String, value:UInt = 0, commandQueue:ProcessMemoryCommandQueue) {
         self.address = address
         dataState = .invalid
         self.name = name
@@ -44,14 +47,14 @@ class ProcessElement: UpdatableElement {
     }
 }
 
-struct ProcessElementsBuilder {
-    let commandQueue:ProcessMemoryCommandQueue
-    
-    func onOff(withName name:String, address:Address) -> ProcessElement {
-        return ProcessElement(address: address, name: name, value: OnOffState().rawValue, commandQueue: commandQueue)
-    }
-    
-    func openClose(withName name:String, address:Address) -> ProcessElement {
-        return ProcessElement(address: address, name: name, value: OpenCloseState().rawValue, commandQueue: commandQueue)
-    }
-}
+//struct ProcessElementsBuilder {
+//    let commandQueue:ProcessMemoryCommandQueue
+//    
+//    func onOff(withName name:String, address:Address) -> ProcessElement {
+//        return ProcessElement(address: address, name: name, value: OnOffState().rawValue, commandQueue: commandQueue)
+//    }
+//    
+//    func openClose(withName name:String, address:Address) -> ProcessElement {
+//        return ProcessElement(address: address, name: name, value: OpenCloseState().rawValue, commandQueue: commandQueue)
+//    }
+//}

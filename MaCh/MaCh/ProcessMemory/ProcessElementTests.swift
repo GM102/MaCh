@@ -26,14 +26,13 @@ class ProcessElementTests: XCTestCase {
     }
     
     func testElementsBuilder() {
-        let builder = ProcessElementsBuilder(commandQueue: MockProcessMemoryCommandQueue())
-        let shader = builder.openClose(withName: "test", address: Address.mockAddress10)
+        let shader = ProcessElement(address: Address.mockAddress10,
+                                    name: name,
+                                    value: OpenCloseState().rawValue,
+                                    commandQueue: MockProcessMemoryCommandQueue())
         XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(nil).rawValue)
         shader.update(forAddress: Address.mockAddress10, value: 155)
         XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(55).rawValue)
-//        shader.update(forAddress: Address.mockAddress10, value: 1000)
-//        XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(nil).rawValue)
-//        shader.setValue(OpenCloseState.stoppedInBetween(1000).rawValue)
-//        XCTAssertEqual(shader.value, OpenCloseState.stoppedInBetween(nil).rawValue)
+        // TODO: its not a good place to introduce OnOffState/OpenCloseState
     }
 }

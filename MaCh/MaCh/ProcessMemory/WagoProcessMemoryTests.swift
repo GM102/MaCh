@@ -2,7 +2,7 @@
 import XCTest
 
 class FakeWagoMemoryGateway: WagoMemoryGateway {
-    var lastWriteCommands: [MemoryCellWriteCommand]?
+    var lastWriteCommands = [MemoryCellWriteCommand]()
     var lastReadRange: WagoMemoryRange?
     var fakeReadMemory: [UInt16]?
     
@@ -13,7 +13,7 @@ class FakeWagoMemoryGateway: WagoMemoryGateway {
     
     func writeCommands(_ commands: [MemoryCellWriteCommand], readRange: WagoMemoryRange, completion: @escaping ([UInt16]?, Error?) -> ()) {
         lastReadRange = readRange
-        lastWriteCommands = commands
+        lastWriteCommands = lastWriteCommands + commands
         completion(fakeReadMemory, nil)
     }
 }
@@ -42,11 +42,18 @@ class WagoEventsTests: XCTestCase {
         processMemory?.elements.append(fakeElement)
         api?.fakeReadMemory = [1]
         processMemory?.queueWriteCommand(address: Address.mockAddress10, data: 1)
-        processMemory?.executeCommands()
-        XCTAssertEqual(api?.lastWriteCommands?.last?.address.offset, 10)
-        XCTAssertEqual(api?.lastWriteCommands?.last?.value, 1)
+        processMemory?.refreshData()
+        XCTAssertEqual(api?.lastWriteCommands.last?.address.offset, 10)
+        XCTAssertEqual(api?.lastWriteCommands.last?.value, 1)
         XCTAssertEqual(api?.lastReadRange, .allMemory)
         XCTAssertEqual(fakeElement.updateValues.last, 1)
+    }
+    
+    func testFlushCommandsAfterWrite() {
+        processMemory?.queueWriteCommand(address: Address.mockAddress10, data: 1)
+        processMemory?.refreshData()
+        processMemory?.refreshData()
+        XCTAssertEqual(api?.lastWriteCommands.count, 1)
     }
     
     func testRefreshData() {
