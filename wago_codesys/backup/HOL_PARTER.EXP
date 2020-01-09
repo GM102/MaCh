@@ -1,0 +1,20 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Hol_parter
+VAR
+	lampNextToL:OnOff;
+(*	lampNextToE:OnOff; *)
+	mainLamp:OnOff;
+
+	tmp: BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=H9_2a, output => H7_1);
+
+lampNextToL(input:=H9_2b OR H3_1a);
+H1_1:= lampNextToL.state;
+H6_1:=lampNextToL.state;
+END_FUNCTION_BLOCK

@@ -1,0 +1,16 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK  Bathroom_pietro
+VAR
+	mainLamp:OnOff;
+	wallLamp:OnOff;
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+mainLamp(input:=B3_3a OR P9_1a, output => B1_1);
+wallLamp(input:=B3_3b, output => B2_2);
+END_FUNCTION_BLOCK

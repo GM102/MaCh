@@ -1,0 +1,24 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'Shaders' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_GLOBAL
+	shader_kuchnia:Shader;
+	shader_taras:Shader;
+	shader_kominek:Shader;
+	shader_gabinet:Shader;
+	shader_sypialnia:Shader;
+	shader_lazienka:Shader;
+	shader_kotlownia:Shader;
+	shader_Julka:Shader;
+	shader_Zosia:Shader;
+END_VAR
+
+(* @OBJECT_END := 'Shaders' *)
+(* @CONNECTIONS := Shaders
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)

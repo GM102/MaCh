@@ -1,0 +1,20 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Zosia
+VAR
+	mainLamp: OnOff;
+	buttonZ12_1b: Button;
+	shaderZ:Shader;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=Z12_1a, output => Z1_1a);
+
+buttonZ12_1b(input:=Z12_1b);
+shaderZ(switch:=buttonZ12_1b.fallingEdge);
+Z7_1a:=shaderZ.opening;
+Z7_1b:=shaderZ.closing;
+
+END_FUNCTION_BLOCK

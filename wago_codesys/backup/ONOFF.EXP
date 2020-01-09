@@ -1,0 +1,30 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK OnOff
+
+VAR_INPUT
+	input:BOOL;
+END_VAR
+
+VAR_OUTPUT
+	output:BOOL;
+END_VAR
+
+VAR
+	state:BOOL;
+	EdgeDetection:EdgeDetection;
+	tmp:BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+EdgeDetection(input:=input, output => tmp);
+
+IF tmp THEN
+	state := NOT state;
+END_IF
+
+output := state;
+
+END_FUNCTION_BLOCK

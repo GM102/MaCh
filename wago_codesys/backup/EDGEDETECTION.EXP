@@ -1,0 +1,27 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK EdgeDetection
+VAR_INPUT
+	input:BOOL;
+END_VAR
+VAR_OUTPUT
+	output: BOOL;
+END_VAR
+VAR
+	oldValue: BOOL;
+	onFallingEdge:BOOL := 1;
+END_VAR
+VAR_IN_OUT
+END_VAR
+(* @END_DECLARATION := '0' *)
+IF onFallingEdge THEN
+	output:= (oldValue = 1) AND (input = 0);
+ELSE
+	output:= (oldValue = 0) AND (input = 1);
+END_IF
+oldValue:= input;
+
+END_FUNCTION_BLOCK

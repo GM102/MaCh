@@ -1,0 +1,39 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+
+FUNCTION_BLOCK Delay
+VAR_INPUT
+	start:BOOL;
+	stop:BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	afterTime:BOOL;
+	afterTimeImpulse:BOOL;
+	untilTimePass:BOOL;
+	counter: INT;
+	timeSetup: INT;
+END_VAR
+(* @END_DECLARATION := '0' *)
+IF NOT start  OR stop THEN
+	counter := 0;
+END_IF
+
+IF clock1secImpulse AND start THEN
+	counter := counter + 1;
+END_IF
+IF counter > timeSetup THEN
+	counter := timeSetup;
+END_IF
+
+afterTimeImpulse:= NOT afterTime AND counter >= timeSetup;
+afterTime := counter >= timeSetup;
+
+untilTimePass := start AND (NOT stop) AND counter < timeSetup;
+
+
+END_FUNCTION_BLOCK

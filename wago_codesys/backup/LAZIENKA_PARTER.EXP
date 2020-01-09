@@ -1,0 +1,18 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Lazienka_parter
+VAR
+	mainLamp:OnOff;
+	wallLamp:OnOff;
+	Shader: ButtonTriggeredShader;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=H5_1a OR L4_3a, output => L5_1);
+wallLamp(input:=H5_1b OR L4_3b, output => L4_1);
+
+shader(input:=H5_1c OR L4_3c, shader:=shader_lazienka, openOut=>L1_1a, closeOut=>L1_1b);
+
+END_FUNCTION_BLOCK

@@ -1,0 +1,14 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM start
+VAR
+
+	test0 AT %QX0.0:BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+test0 := 0;
+END_PROGRAM

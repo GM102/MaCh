@@ -1,0 +1,15 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Przedpokoj_pietro
+VAR
+	mainLamp:OnOff;
+	tmp: BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=H11_1a OR P7_1a OR P8_1a);
+P1_1:= mainLamp.state;
+P3_1:=mainLamp.state;
+END_FUNCTION_BLOCK

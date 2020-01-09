@@ -1,0 +1,34 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Scene
+VAR_INPUT
+	rotate:BOOL;
+	switch:BOOL;
+END_VAR
+
+VAR
+	count:INT:=3;
+	number:INT;
+	enabled:BOOL;
+	privateNumber:INT;
+END_VAR
+(* @END_DECLARATION := '0' *)
+enabled:= enabled XOR switch;
+
+IF rotate AND enabled THEN
+	privateNumber := privateNumber + 1;
+END_IF
+
+IF privateNumber >= count OR privateNumber < 1 THEN
+	privateNumber:=1;
+END_IF
+
+IF enabled THEN
+	number := privateNumber;
+ELSE
+	number := 0;
+END_IF
+END_FUNCTION_BLOCK

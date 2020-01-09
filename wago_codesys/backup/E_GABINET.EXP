@@ -1,0 +1,16 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK E_gabinet
+VAR
+	mainLamp:OnOff;
+	Shader: ButtonTriggeredShader;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=E5_1b, output => E6_1);
+
+shader(input:=E5_1a, shader:=shader_gabinet, openOut=>E2_1a, closeOut=>E2_1b);
+
+END_FUNCTION_BLOCK

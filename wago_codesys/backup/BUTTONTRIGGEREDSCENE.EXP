@@ -1,0 +1,37 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK ButtonTriggeredScene
+VAR_INPUT
+	input:BOOL;
+END_VAR
+VAR_OUTPUT
+	a:BOOL;
+	b:BOOL;
+END_VAR
+VAR
+	Button:Button;
+END_VAR
+VAR_IN_OUT
+	Scene:Scene;
+END_VAR
+
+(* @END_DECLARATION := '0' *)
+button(input:=input);
+scene(rotate:= button.longPressed, switch:= button.fallingEdge);
+a:= scene.number = 1 OR scene.number = 3;
+b:= scene.number > 1;
+
+
+
+
+
+
+
+
+
+
+
+END_FUNCTION_BLOCK

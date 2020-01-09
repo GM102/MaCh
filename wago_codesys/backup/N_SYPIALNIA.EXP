@@ -1,0 +1,15 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK N_sypialnia
+VAR
+	mainLamp:OnOff;
+	Shader: ButtonTriggeredShader;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=N6_1b, output => N7_1);
+shader(input:=N6_1a, shader:=shader_sypialnia, openOut=>N1_1a, closeOut=>N1_1b);
+
+END_FUNCTION_BLOCK

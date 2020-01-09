@@ -1,0 +1,16 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Kotlownia
+VAR
+	mainLamp :OnOff;
+	Shader:ButtonTriggeredShader;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=K5_3a OR K5_2b, output => K11_1);
+
+shader(input:=K5_3b OR K5_2a, shader:=shader_kotlownia, openOut=>K1_2a, closeOut=>K1_2b);
+
+END_FUNCTION_BLOCK

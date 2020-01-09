@@ -1,0 +1,11 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM Interrupt_0
+VAR
+END_VAR
+(* @END_DECLARATION := '0' *)
+ %QX0.0 := 1;
+END_PROGRAM

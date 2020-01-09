@@ -1,0 +1,13 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Garderoba
+VAR
+	mainLampG:OnOff;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLampG(input:=H3_1b, output => G3_1);
+
+END_FUNCTION_BLOCK

@@ -1,0 +1,44 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK SceneGroup
+VAR_INPUT
+	switch:BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	lastState: ARRAY [0..3] OF BOOL;
+	Button:Button;
+
+	tmp1:BOOL;
+END_VAR
+VAR_IN_OUT
+	a:BOOL;
+	b:BOOL;
+	c:BOOL;
+	d:BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+button(input:=switch);
+IF button.fallingEdge THEN
+	IF a OR b OR c OR d THEN
+		lastState[0]:=a;
+		lastState[1]:=b;
+		lastState[2]:=c;
+		lastState[3]:=d;
+		a:=0;
+		b:=0;
+		c:=0;
+		d:=0;
+	ELSE
+		a:=lastState[0];
+		b:=lastState[1];
+		c:=lastState[2];
+		d:=lastState[3];
+	END_IF
+END_IF
+
+END_FUNCTION_BLOCK

@@ -1,0 +1,18 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM clock1s
+VAR
+END_VAR
+
+(* @END_DECLARATION := '0' *)
+
+
+
+clock1secImpulse:=1;
+
+
+
+END_PROGRAM

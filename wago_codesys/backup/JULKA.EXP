@@ -1,0 +1,20 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Julka
+VAR
+	mainLamp :OnOff;
+	buttonJ8_1b: Button;
+	shaderJ:Shader;
+END_VAR
+(* @END_DECLARATION := '0' *)
+mainLamp(input:=J8_1a, output => J2_1);
+
+buttonJ8_1b(input:=J8_1b);
+shaderJ(switch:=buttonJ8_1b.fallingEdge);
+J5_1a:=shaderJ.opening;
+J5_1b:=shaderJ.closing;
+
+END_FUNCTION_BLOCK

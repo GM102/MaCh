@@ -1,0 +1,13 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM V2
+VAR
+	test:INT;
+	tmp:BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+test := test + 1;
+END_PROGRAM

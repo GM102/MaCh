@@ -1,0 +1,54 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Shader
+VAR_INPUT
+(*	open:BOOL;
+	close:BOOL;*)
+	openImpulse:BOOL;
+	closeImpulse:BOOL;
+	switch:BOOL;
+END_VAR
+VAR
+	closing: BOOL;
+	opening: BOOL;
+	lastDirection:BOOL;
+	delayTimer:Delay := (timeSetup:= 40);
+	state:INT;  (* 0: closed; 100: open *)
+END_VAR
+(* @END_DECLARATION := '0' *)
+delayTimer();
+
+IF delayTimer.afterTime OR ( (openImpulse OR closeImpulse OR switch) AND (closing OR opening) ) THEN
+	delayTimer.start := 0;
+	closing := 0;
+	opening := 0;
+ELSE
+	IF switch THEN
+		lastDirection:= NOT lastDirection;
+		closing:=lastDirection;
+		opening:=NOT lastDirection;
+		delayTimer.start := 1;
+	END_IF
+
+	IF openImpulse AND NOT closing THEN
+		lastDirection:=0;
+		closing := 0;
+		opening := 1;
+		delayTimer.start := 1;
+	END_IF
+
+	IF closeImpulse AND NOT opening THEN
+		lastDirection:=1;
+		closing := 1;
+		opening := 0;
+		delayTimer.start := 1;
+	END_IF
+END_IF
+
+openImpulse:=0;
+closeImpulse:=0;
+
+END_FUNCTION_BLOCK

@@ -1,0 +1,26 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK ButtonTriggeredShader
+VAR_INPUT
+	input:BOOL;
+END_VAR
+VAR_OUTPUT
+	closeOut:BOOL;
+	openOut:BOOL;
+END_VAR
+VAR
+	Button:Button;
+END_VAR
+VAR_IN_OUT
+	Shader:Shader;
+END_VAR
+(* @END_DECLARATION := '0' *)
+button(input:=input);
+shader(switch:= button.fallingEdge);
+
+closeOut:= shader.closing;
+openOut:= shader.opening;
+END_FUNCTION_BLOCK

@@ -1,0 +1,27 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Button
+VAR_INPUT
+	input: BOOL;
+END_VAR
+
+VAR
+	EdgeDetection:EdgeDetection;
+	fallingEdge:BOOL;
+	longPressed:BOOL;
+	timer:Delay:= (timeSetup:= 2);
+	tmp:BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+EdgeDetection(input:=input, output => tmp);
+fallingEdge := tmp AND NOT timer.afterTime;
+
+timer(start:= input);
+longPressed:= timer.afterTimeImpulse;
+
+
+
+END_FUNCTION_BLOCK

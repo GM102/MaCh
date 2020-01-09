@@ -1,0 +1,11 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Rooms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK Attic
+VAR
+END_VAR
+(* @END_DECLARATION := '0' *)
+;
+END_FUNCTION_BLOCK

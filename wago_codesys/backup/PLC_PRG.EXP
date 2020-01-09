@@ -1,0 +1,54 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM PLC_PRG
+VAR
+	firstLoop:BOOL;
+	test:INT;
+
+	Attic:Attic;
+	Bathroom_pietro:Bathroom_pietro;
+	E_gabinet:E_gabinet;
+	Garderoba:Garderoba;
+	Hol_parter:Hol_parter;
+	Julka:Julka;
+	Kotlownia:Kotlownia;
+	Lazienka_parter:Lazienka_parter;
+	N_sypialnia:N_sypialnia;
+	Przedpokoj_pietro:Przedpokoj_pietro;
+	Salon:Salon;
+	Zosia:Zosia;
+
+	LockMode:LockMode;
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+IF NOT firstLoop THEN
+	firstLoop:=1;
+	start();
+END_IF
+
+lastOutput:=lastInput;
+
+lockMode();
+
+attic();
+bathroom_pietro();
+e_gabinet();
+garderoba();
+hol_parter();
+julka();
+kotlownia();
+lazienka_parter();
+n_sypialnia();
+przedpokoj_pietro();
+salon();
+zosia();
+
+clock1secImpulse := 0;
+clock01secImpulse:=0;
+test := test + 1;
+
+END_PROGRAM
