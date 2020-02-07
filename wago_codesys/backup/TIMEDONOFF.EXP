@@ -1,0 +1,51 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components\/OnOff' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK TimedOnOff
+VAR_INPUT
+	permanent:BOOL;
+	input:BOOL;
+	postpone:BOOL;
+	timeSetup:INT;
+	state:BOOL;
+END_VAR
+VAR_OUTPUT
+	output:BOOL;
+END_VAR
+VAR
+	timer:Delay;
+	permanentMode: BOOL;
+END_VAR
+
+(* @END_DECLARATION := '0' *)
+timer.timeSetup:=timeSetup;
+
+IF input THEN
+	state:= NOT state;
+END_IF
+
+IF permanent THEN
+	permanentMode:=1;
+	state:=1;
+END_IF
+
+IF NOT state THEN
+	permanentMode:= 0;
+END_IF;
+
+timer.resetTime:=postpone;
+IF postpone THEN
+	state:=1;
+END_IF
+
+timer(start:=state);
+
+IF timer.afterTimeImpulse AND NOT permanentMode THEN
+	state := 0;
+END_IF
+
+output:=state;
+
+END_FUNCTION_BLOCK

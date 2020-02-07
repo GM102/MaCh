@@ -23,6 +23,8 @@ VAR
 	kuchniaShader: ButtonTriggeredShader;
 	tarasShader: ButtonTriggeredShader;
 	kominekShader: ButtonTriggeredShader;
+
+	kuchniaPresenceDetection:BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)
 (*
@@ -44,4 +46,6 @@ kominek(input:=S1_2c OR S2_2a, scene:=kominekS, a=> S14_1a, b=>S14_1b);
 kuchniaShader(input:=S3_4a, shader:=shader_kuchnia, openOut=>S3_1a, closeOut=>S3_1b);
 tarasShader(input:=S4_1a, shader:=shader_taras, openOut=>S4_3a, closeOut=>S4_3b);
 kominekShader(input:=S2_2b, shader:=shader_kominek, openOut=>S2_1a, closeOut=>S2_1b);
+
+kuchniaPresenceDetection:=S1_2a XOR S4_1c XOR S24_1a XOR S24_1b XOR S27_1a XOR S27_1b XOR S3_4a XOR S3_4b;
 END_FUNCTION_BLOCK

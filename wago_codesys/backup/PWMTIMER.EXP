@@ -1,0 +1,28 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components\/OnOff' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK PWMTimer
+VAR_INPUT
+	start:BOOL;
+	onTimeSetup:INT;
+	offTimeSetup:INT;
+END_VAR
+VAR_OUTPUT
+	output:BOOL;
+END_VAR
+VAR
+	onTimer:Delay;
+	offTimer:Delay;
+END_VAR
+(* @END_DECLARATION := '0' *)
+onTimer.timeSetup:=onTimeSetup;
+offTimer.timeSetup:=offTimeSetup;
+
+onTimer(start:=start);
+offTimer(start:=onTimer.afterTime);
+onTimer.resetTime:=offTimer.afterTimeImpulse;
+output:= onTimer.untilTimePass;
+
+END_FUNCTION_BLOCK

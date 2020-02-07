@@ -3,11 +3,14 @@
 (* @PATH := '\/Rooms' *)
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
-FUNCTION_BLOCK Garderoba
+FUNCTION_BLOCK Taras
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
 VAR
-	mainLamp:ButtonTriggeredTimedOnOff:= (timeSetup:= 12000);
+	mainLamp:ButtonTriggeredTimedOnOff:= (timeSetup:= 1200);
 END_VAR
 (* @END_DECLARATION := '0' *)
-mainLamp(input:=H3_1b, output => G3_1);
-
+mainLamp(input:=S4_1d, output => S12_1);
 END_FUNCTION_BLOCK

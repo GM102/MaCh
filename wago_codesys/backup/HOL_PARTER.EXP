@@ -5,16 +5,20 @@
 (* @SYMFILEFLAGS := '2048' *)
 FUNCTION_BLOCK Hol_parter
 VAR
-	lampNextToL:OnOff;
-(*	lampNextToE:OnOff; *)
-	mainLamp:OnOff;
+(*	lampNextToL:OnOff; *)
+	lampNextToL:ButtonTriggeredTimedOnOff:= (timeSetup:= 200);
+	mainLamp:ButtonTriggeredTimedOnOff:= (timeSetup:= 6000);
+	entranceLamp:ButtonTriggeredTimedOnOff:= (timeSetup:= 1200);
 
 	tmp: BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)
-mainLamp(input:=H9_2a, output => H7_1);
+mainLamp(input:=H9_2a OR S1_2d, output => H7_1);
 
 lampNextToL(input:=H9_2b OR H3_1a);
 H1_1:= lampNextToL.state;
 H6_1:=lampNextToL.state;
+
+entranceLamp(input:=H9_2c AND NOT H9_2d, output => W1_1);
+
 END_FUNCTION_BLOCK

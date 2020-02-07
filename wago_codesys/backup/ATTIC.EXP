@@ -5,7 +5,10 @@
 (* @SYMFILEFLAGS := '2048' *)
 FUNCTION_BLOCK Attic
 VAR
+	lamps:ButtonTriggeredTimedOnOff:= (timeSetup:= 400);
 END_VAR
 (* @END_DECLARATION := '0' *)
-;
+lamps(input:=P7_1b, output => A1_2);
+
+
 END_FUNCTION_BLOCK

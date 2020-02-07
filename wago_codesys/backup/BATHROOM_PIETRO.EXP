@@ -7,10 +7,12 @@ FUNCTION_BLOCK  Bathroom_pietro
 VAR
 	mainLamp:OnOff;
 	wallLamp:OnOff;
-
+	presenceDetection:BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)
 
 mainLamp(input:=B3_3a OR P9_1a, output => B1_1);
 wallLamp(input:=B3_3b, output => B2_2);
+
+presenceDetection:=B3_3a XOR B3_3b XOR P9_1a XOR P9_1b;
 END_FUNCTION_BLOCK

@@ -7,7 +7,11 @@ PROGRAM V2
 VAR
 	test:INT;
 	tmp:BOOL;
+	block:EdgeDetection := (onRisingEdge:=1, onFallingEdge:=0);
 END_VAR
 (* @END_DECLARATION := '0' *)
-test := test + 1;
+block(input:=S2_2a, output=>tmp);
+IF tmp THEN
+	test := test + 1;
+END_IF
 END_PROGRAM

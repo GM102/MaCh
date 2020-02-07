@@ -20,6 +20,7 @@ VAR
 	Przedpokoj_pietro:Przedpokoj_pietro;
 	Salon:Salon;
 	Zosia:Zosia;
+	Taras:Taras;
 
 	LockMode:LockMode;
 
@@ -30,8 +31,6 @@ IF NOT firstLoop THEN
 	start();
 END_IF
 
-lastOutput:=lastInput;
-
 lockMode();
 
 attic();
@@ -40,12 +39,13 @@ e_gabinet();
 garderoba();
 hol_parter();
 julka();
-kotlownia();
+kotlownia(presenceDetection:=bathroom_pietro.presenceDetection XOR lazienka_parter.presenceDetection XOR salon.kuchniaPresenceDetection );
 lazienka_parter();
 n_sypialnia();
 przedpokoj_pietro();
 salon();
 zosia();
+taras();
 
 clock1secImpulse := 0;
 clock01secImpulse:=0;

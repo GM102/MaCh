@@ -9,10 +9,10 @@ VAR_INPUT
 END_VAR
 
 VAR
-	EdgeDetection:EdgeDetection;
+	EdgeDetection:EdgeDetection := (onFallingEdge:=1);
 	fallingEdge:BOOL;
 	longPressed:BOOL;
-	timer:Delay:= (timeSetup:= 2);
+	timer:Delay:= (timeSetup:= 20);
 	tmp:BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)

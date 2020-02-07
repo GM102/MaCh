@@ -14,14 +14,14 @@ VAR
 	i: INT;
 END_VAR
 (* @END_DECLARATION := '0' *)
-button(input:=H9_2c);
+button(input:=H9_2c AND H9_2d);
 
 allShaders[0]:= ADR(shader_kuchnia);
 allShaders[1]:= ADR(shader_taras);
 allShaders[2]:= ADR(shader_kominek);
 allShaders[3]:= ADR(shader_gabinet);
-allShaders[4]:= ADR(shader_sypialnia);
-allShaders[5]:= ADR(shader_lazienka);
+allShaders[4]:= ADR(shader_lazienka);
+allShaders[5]:= ADR(shader_sypialnia); (* close only *)
 allShaders[6]:= ADR(shader_kotlownia); (* close only *)
 
 IF button.longPressed THEN
@@ -31,7 +31,7 @@ IF button.longPressed THEN
 END_IF
 
 IF button.fallingEdge THEN
-	FOR i := 0 TO 5 DO
+	FOR i := 0 TO 4 DO
 		allShaders[i]^.openImpulse := 1;
 	END_FOR
 END_IF

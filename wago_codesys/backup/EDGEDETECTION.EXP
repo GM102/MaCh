@@ -6,22 +6,21 @@
 FUNCTION_BLOCK EdgeDetection
 VAR_INPUT
 	input:BOOL;
+	onFallingEdge:BOOL;
+	onRisingEdge:BOOL;
 END_VAR
 VAR_OUTPUT
 	output: BOOL;
 END_VAR
 VAR
 	oldValue: BOOL;
-	onFallingEdge:BOOL := 1;
+	impulse:BOOL;
 END_VAR
 VAR_IN_OUT
 END_VAR
 (* @END_DECLARATION := '0' *)
-IF onFallingEdge THEN
-	output:= (oldValue = 1) AND (input = 0);
-ELSE
-	output:= (oldValue = 0) AND (input = 1);
-END_IF
+output:= (oldValue XOR input) AND ((onFallingEdge AND oldValue) OR (onRisingEdge AND NOT oldValue));
+impulse:=output;
 oldValue:= input;
 
 END_FUNCTION_BLOCK

@@ -80,7 +80,7 @@ VAR_GLOBAL
 	Z11_1a AT %IX4.3:BOOL;
 	Z11_1b AT %IX4.4:BOOL;
 
-	lastOutput AT %QX3.7:BOOL;
+	K3_3 AT %QX3.7:BOOL;
 	lastInput AT%IX4.15:BOOL;
 END_VAR
 

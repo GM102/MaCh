@@ -1,0 +1,24 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Components\/OnOff' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK ButtonTriggeredTimedOnOff
+VAR_INPUT
+	input:BOOL;
+	timeSetup:INT;
+END_VAR
+VAR_OUTPUT
+	output:BOOL;
+END_VAR
+VAR
+	Button:Button;
+	TimedOnOff:TimedOnOff;
+	state:BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+button(input:=input);
+timedOnOff(timeSetup:=timeSetup, input:= button.fallingEdge, permanent:= button.longPressed, output=>output);
+state:=timedOnOff.state;
+
+END_FUNCTION_BLOCK

@@ -1,6 +1,6 @@
 
 (* @NESTEDCOMMENTS := 'Yes' *)
-(* @PATH := '\/Components' *)
+(* @PATH := '\/Components\/Scene' *)
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
 FUNCTION_BLOCK ButtonTriggeredScene
@@ -21,8 +21,8 @@ END_VAR
 (* @END_DECLARATION := '0' *)
 button(input:=input);
 scene(rotate:= button.longPressed, switch:= button.fallingEdge);
-a:= scene.number = 1 OR scene.number = 3;
-b:= scene.number > 1;
+a:= scene.number = 1 OR scene.number = 2;
+b:= scene.number = 1 OR scene.number = 3;
 
 
 

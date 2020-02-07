@@ -1,7 +1,7 @@
 
 RESOURCE
 
-TASK clock1s (PRIORITY := 1, INTERVAL := T#1s0ms);
+TASK clock1s (PRIORITY := 3, INTERVAL := T#1s0ms);
 clock1s();
 {Additional_info : 1,0,0,0,1,4294967295}
 END_TASK
@@ -9,6 +9,11 @@ END_TASK
 TASK loop (PRIORITY := 2);
 PLC_PRG();
 V2();
+{Additional_info : 1,0,0,0,1,4294967295}
+END_TASK
+
+TASK clock01s (PRIORITY := 1, INTERVAL := T#100ms);
+clock01s()
 {Additional_info : 1,0,0,0,1,4294967295}
 END_TASK
 {event_task : 'start','Called when program starts','start','FUNCTION systemevent: DWORD VAR_INPUT dwEvent: DWORD; dwFilter: DWORD; dwOwner: DWORD; END_VAR '}{event_task_info : 1,1,11994}

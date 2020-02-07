@@ -1,6 +1,6 @@
 
 (* @NESTEDCOMMENTS := 'Yes' *)
-(* @PATH := '\/Components' *)
+(* @PATH := '\/Components\/Shader' *)
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
 FUNCTION_BLOCK Shader
@@ -15,7 +15,7 @@ VAR
 	closing: BOOL;
 	opening: BOOL;
 	lastDirection:BOOL;
-	delayTimer:Delay := (timeSetup:= 40);
+	delayTimer:Delay := (timeSetup:= 400);
 	state:INT;  (* 0: closed; 100: open *)
 END_VAR
 (* @END_DECLARATION := '0' *)

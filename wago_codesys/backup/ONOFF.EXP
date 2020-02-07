@@ -1,12 +1,13 @@
 
 (* @NESTEDCOMMENTS := 'Yes' *)
-(* @PATH := '\/Components' *)
+(* @PATH := '\/Components\/OnOff' *)
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
 FUNCTION_BLOCK OnOff
 
 VAR_INPUT
 	input:BOOL;
+	state:BOOL;
 END_VAR
 
 VAR_OUTPUT
@@ -14,8 +15,7 @@ VAR_OUTPUT
 END_VAR
 
 VAR
-	state:BOOL;
-	EdgeDetection:EdgeDetection;
+	EdgeDetection:EdgeDetection := (onFallingEdge:=1);
 	tmp:BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)

@@ -5,7 +5,7 @@
 (* @SYMFILEFLAGS := '2048' *)
 FUNCTION_BLOCK Przedpokoj_pietro
 VAR
-	mainLamp:OnOff;
+	mainLamp:ButtonTriggeredTimedOnOff:= (timeSetup:= 300);
 	tmp: BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)
