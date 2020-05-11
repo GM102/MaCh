@@ -12,7 +12,12 @@ VAR_GLOBAL
 	shader_lazienka:Shader;
 	shader_kotlownia:Shader;
 	shader_Julka:Shader;
+	shader_Julka_dach:Shader;
 	shader_Zosia:Shader;
+	shader_Zosia_dach_L:Shader;
+	shader_Zosia_dach_P:Shader;
+	shader_przedpokoj:Shader;
+
 END_VAR
 
 (* @OBJECT_END := 'Shaders' *)

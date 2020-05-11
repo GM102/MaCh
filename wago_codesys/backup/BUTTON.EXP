@@ -12,7 +12,7 @@ VAR
 	EdgeDetection:EdgeDetection := (onFallingEdge:=1);
 	fallingEdge:BOOL;
 	longPressed:BOOL;
-	timer:Delay:= (timeSetup:= 20);
+	timer:Delay:= (timeSetup:= 10);
 	tmp:BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)

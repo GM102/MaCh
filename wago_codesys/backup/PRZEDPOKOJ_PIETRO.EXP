@@ -6,10 +6,18 @@
 FUNCTION_BLOCK Przedpokoj_pietro
 VAR
 	mainLamp:ButtonTriggeredTimedOnOff:= (timeSetup:= 300);
+	Shader: ButtonTriggeredShader;
 	tmp: BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)
 mainLamp(input:=H11_1a OR P7_1a OR P8_1a);
 P1_1:= mainLamp.state;
 P3_1:=mainLamp.state;
+
+shader(input:=H11_1b, shader:=shader_przedpokoj, openOut=>P2_1a, closeOut=>P2_1b);
+
+
+
+
+
 END_FUNCTION_BLOCK

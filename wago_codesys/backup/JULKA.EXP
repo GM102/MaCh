@@ -6,15 +6,22 @@
 FUNCTION_BLOCK Julka
 VAR
 	mainLamp :OnOff;
-	buttonJ8_1b: Button;
+(*	buttonJ8_1b: Button;
 	shaderJ:Shader;
+*)
+	Shader: ButtonTriggeredShader;
+	shader_dach: ButtonTriggeredShader;
 END_VAR
 (* @END_DECLARATION := '0' *)
-mainLamp(input:=J8_1a, output => J2_1);
+mainLamp(input:=J8_1c, output => J2_1);
 
+shader(input:=J8_1b, shader:=shader_Julka, openOut=>J5_1a, closeOut=>J5_1b);
+shader_dach(input:=J8_1a, shader:=shader_Julka_dach, openOut=>J1_1a, closeOut=>J1_1b);
+
+(*
 buttonJ8_1b(input:=J8_1b);
 shaderJ(switch:=buttonJ8_1b.fallingEdge);
 J5_1a:=shaderJ.opening;
-J5_1b:=shaderJ.closing;
+J5_1b:=shaderJ.closing;*)
 
 END_FUNCTION_BLOCK

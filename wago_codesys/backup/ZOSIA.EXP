@@ -6,15 +6,23 @@
 FUNCTION_BLOCK Zosia
 VAR
 	mainLamp: OnOff;
-	buttonZ12_1b: Button;
-	shaderZ:Shader;
+(*	buttonZ12_1b: Button;*)
+	Shader: ButtonTriggeredShader;
+	shader_dach_L: ButtonTriggeredShader;
+	shader_dach_P: ButtonTriggeredShader;
+(*	shaderZ:Shader;*)
 END_VAR
 (* @END_DECLARATION := '0' *)
 mainLamp(input:=Z12_1a, output => Z1_1a);
 
+shader(input:=Z12_1b, shader:=shader_Zosia, openOut=>Z7_1a, closeOut=>Z7_1b);
+shader_dach_L(input:=Z12_1c, shader:=shader_Zosia_dach_L, openOut=>Z3_1a, closeOut=>Z3_1b);
+shader_dach_P(input:=Z12_1c, shader:=shader_Zosia_dach_P, openOut=>Z4_1a, closeOut=>Z4_1b);
+
+(*
 buttonZ12_1b(input:=Z12_1b);
 shaderZ(switch:=buttonZ12_1b.fallingEdge);
 Z7_1a:=shaderZ.opening;
-Z7_1b:=shaderZ.closing;
-
+Z7_1b:=shaderZ.closingc
+*)
 END_FUNCTION_BLOCK
