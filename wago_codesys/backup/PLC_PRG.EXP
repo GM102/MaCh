@@ -21,6 +21,7 @@ VAR
 	Salon:Salon;
 	Zosia:Zosia;
 	Taras:Taras;
+	Studnia:Studnia;
 
 	LockMode:LockMode;
 
@@ -46,6 +47,7 @@ przedpokoj_pietro();
 salon();
 zosia();
 taras();
+studnia();
 
 clock1secImpulse := 0;
 clock01secImpulse:=0;

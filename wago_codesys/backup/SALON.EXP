@@ -36,11 +36,11 @@ S24.1 blat po prawej
 S27.1 blat po lewej
 *)
 kuchniaMain(switch:=S1_2a OR S4_1c, a:=kuchniaS.enabled, b:=wyspaS.enabled, c:=ledLeft.state, d:=ledRight.state);
-kuchnia(input:=S3_4b OR S24_1a, scene:=kuchniaS, a=> S16_1a, b=>S16_1b);
-wyspa(input:=S4_1e OR S27_1a OR S1_2e, scene:=wyspaS,  a=> S28_1a, b=>S28_1b);
+kuchnia(input:=S3_4b OR S24_1a, scene:=kuchniaS, a=> S16_1a);
+wyspa(input:=S4_1e OR S27_1a OR S1_2e, scene:=wyspaS,  a=> S28_1a);
 ledLeft(input:=S27_1b, output => S26_2);
 ledRight(input:=S24_1b, output => S25_1);
-jadalnia(input:=S4_1b OR S1_2b, output => S15_1b);
+jadalnia(input:=S4_1b OR S1_2b, output => S15_1a);
 kominek(input:=S1_2c OR S2_2a, scene:=kominekS, a=> S14_1a, b=>S14_1b);
 
 kuchniaShader(input:=S3_4a, shader:=shader_kuchnia, openOut=>S3_1a, closeOut=>S3_1b);

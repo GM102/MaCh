@@ -14,7 +14,7 @@ VAR
 	hotWaterDemandTimer:Delay:= (timeSetup:= 18000);
 	EdgeDetection:EdgeDetection := (onRisingEdge:=1, onFallingEdge:=1);
 	startPumpImpulse:BOOL;
-	circulatingPumpPWM:PWMTimer:= (onTimeSetup:= 600, offTimeSetup:=18000);
+	circulatingPumpPWM:PWMTimer:= (onTimeSetup:= 1200, offTimeSetup:=9000);
 END_VAR
 (* @END_DECLARATION := '0' *)
 mainLamp(input:=K5_3a OR K5_2b, output => K11_1);
