@@ -9,11 +9,41 @@ END_VAR
 VAR_OUTPUT
 END_VAR
 VAR
+	level0counterLo: UDINT;
+	level1counterLo: UDINT;
+	level0counterHi: UDINT;
+	level1counterHi: UDINT;
+	start:BOOL;
+	switchOldState:BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)
-D3_4:= D3_1a AND D3_1d;
+D3_3:= D3_1a AND D3_1e;
 
+IF D3_1a AND NOT switchOldState THEN
+	start:= 1;
+END_IF;
 
+IF NOT D3_1b  THEN
+	start:= 1;
+END_IF;
 
+IF D3_1c THEN
+	start := 0;
+END_IF
+D3_4:= D3_1a AND D3_1d AND start;
+
+IF D3_1b THEN
+	level1counterHi :=  level1counterHi + 1;
+ELSE
+	level1counterLo :=  level1counterLo + 1;
+END_IF
+
+IF D3_1c THEN
+	level0counterHi :=  level0counterHi + 1;
+ELSE
+	level0counterLo :=  level0counterLo + 1;
+END_IF
+
+switchOldState:= D3_1a;
 
 END_FUNCTION_BLOCK
