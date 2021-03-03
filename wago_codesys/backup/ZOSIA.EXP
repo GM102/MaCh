@@ -13,7 +13,7 @@ VAR
 (*	shaderZ:Shader;*)
 END_VAR
 (* @END_DECLARATION := '0' *)
-mainLamp(input:=Z12_1a, output => Z1_1a);
+mainLamp(input:=Z12_1a OR P8_1b, output => Z1_1a);
 
 shader(input:=Z12_1b, shader:=shader_Zosia, openOut=>Z7_1a, closeOut=>Z7_1b);
 shader_dach_L(input:=Z12_1c, shader:=shader_Zosia_dach_L, openOut=>Z3_1a, closeOut=>Z3_1b);
